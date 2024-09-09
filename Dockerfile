@@ -1,5 +1,8 @@
 FROM ubuntu:22.04
 
+ENV DEBIAN_FRONTEND=noninteractive \
+	TZ=Europe/Paris
+
 # Install dependencies
 RUN apt update && apt upgrade -y && \
     apt install -y wget python3-pip && \
