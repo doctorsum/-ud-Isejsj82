@@ -25,8 +25,8 @@ RUN printf 'expect eof\n' >> passo
 RUN printf 'EOF\n' >> passo
 RUN chmod +x passo
 RUN ./passo
-RUN wget https://github.com/official-stockfish/Stockfish/releases/download/sf_17/stockfish-ubuntu-x86-64-avx512.tar && \
-    tar -xvf stockfish-ubuntu-x86-64-avx512.tar
+RUN wget https://github.com/official-stockfish/Stockfish/releases/download/sf_17/stockfish-ubuntu-x86-64-avx2.tar && \
+    tar -xvf stockfish-ubuntu-x86-64-avx2.tar
 
 # Create training script
 RUN echo "import chess\n" > main.py && \
@@ -34,7 +34,7 @@ RUN echo "import chess\n" > main.py && \
     echo "import numpy as np\n" >> main.py && \
     echo "import tensorflow as tf\n" >> main.py && \
     echo "import os, subprocess\n\n" >> main.py && \
-    echo "stockfish_path = '/root/stockfish/stockfish-ubuntu-x86-64-avx512'\n" >> main.py && \
+    echo "stockfish_path = '/root/stockfish/stockfish-ubuntu-x86-64-avx2'\n" >> main.py && \
     echo "engine = chess.engine.SimpleEngine.popen_uci(stockfish_path)\n" >> main.py && \
     echo "model_file = 'chess_model.h5'\n" >> main.py && \
     echo "elo_file = 'elo.txt'\n" >> main.py && \
