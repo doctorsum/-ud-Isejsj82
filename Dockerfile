@@ -3,7 +3,7 @@ FROM ubuntu:22.04
 # Install dependencies
 RUN apt update && apt upgrade -y && \
     apt install -y wget python3-pip && \
-    apt install -y g++ make python3 git
+    apt install -y g++ make python3 git expect
 
 # Install Python packages
 RUN pip3 install -U "huggingface_hub[cli]" tensorflow numpy python-chess flask
